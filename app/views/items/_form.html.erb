@@ -1,0 +1,33 @@
+<%= form_for item, html: { multipart: true} do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Название %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Описание %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :Цена %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :Фото %><br />
+    <%= f.file_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
