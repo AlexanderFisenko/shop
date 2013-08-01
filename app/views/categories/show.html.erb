@@ -6,7 +6,7 @@
 </p>
 
 <p>
-  <% unless @category.categoies.any? %>
+  <% unless @category.categories.any? %>
     <b>Включает в себя следующие товары:</b>
     <% @category.items.each do |item| %>
       <p><%= link_to item.name, item %></p>
@@ -15,7 +15,7 @@
 </p>
 
 <p>
-  <% if @category.categoies.any? %>
+  <% if @category.categories.any? %>
     <b>Включает с себя следующие категории:</b>
     <%= @category.categories.map do |category|
       link_to category.name, category_path(category)
