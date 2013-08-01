@@ -24,9 +24,29 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
+    <%= f.label :brand_id %><br />
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Категория %><br />
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Пол %><br />
+    <%= f.collection_select :sex, Item.all, :id, :sex %>
+  </div>
+  <div class="field">
     <%= f.label :Фото %><br />
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :remote_image_url, "Cсылка фото" %><br />
+    <%= f.text_field :remote_image_url %>
+  </div>
+  <label>
+    <%= f.check_box :remove_image %><br />
+    Remove image
+  </label>
   <div class="actions">
     <%= f.submit %>
   </div>

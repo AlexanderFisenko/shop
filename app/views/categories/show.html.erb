@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Название категории:</b>
+  <%= @category.name %>
+</p>
+
+<p>
+  <% unless @category.categoies.any? %>
+    <b>Включает в себя следующие товары:</b>
+    <% @category.items.each do |item| %>
+      <p><%= link_to item.name, item %></p>
+    <% end %>
+  <% end %>
+</p>
+
+<p>
+  <% if @category.categoies.any? %>
+    <b>Включает с себя следующие категории:</b>
+    <%= @category.categories.map do |category|
+      link_to category.name, category_path(category)
+        end.join(", ").html_safe %>
+  <% end %>
+</p>
+  
+
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

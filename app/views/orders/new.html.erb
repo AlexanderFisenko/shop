@@ -1,0 +1,41 @@
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+  <tr>
+    <th>Название Товара</th>
+    <th>Количество</th>
+    <th></th>
+  </tr>
+
+  <% items_in_cart.each do |item| %>
+    <tr>
+      <td><%= link_to item.name, item %></td>
+      <td>
+        <%= form_tag(update_in_cart_item_path(item), method: :put) do %>
+          <%= text_field_tag :quantity, session[:items_in_cart][item.id][:quantity] %>
+          <%= submit_tag "Обновить" %>
+        <% end %>
+      </td>
+      <td>
+        <%= button_to "Удалить из Корзины", remove_from_cart_item_path(item), method: :delete, date: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_for @order do |f| %>
+  <%= f.label "почта клиента" %>
+  <%= f.text_field :user_email %><br/>
+  <%= f.submit "Оформить Заказ" %>
+<% end %>
+

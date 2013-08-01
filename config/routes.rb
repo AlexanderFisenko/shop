@@ -1,7 +1,22 @@
 M::Application.routes.draw do
-  resources :items
+  resources :brands
 
 
+  resources :categories
+
+  resources :orders, only: [:create, :show]
+
+  resources :items do
+    member do
+      put :add_to_cart
+      delete :remove_from_cart
+      put :update_in_cart
+    end
+  end
+
+  match "cart" => "orders#new"
+
+  root to: "items#temp"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= link_to @brand.name, edit_brand_path(@brand) %> <br/>
+  Включает в себя товары:<br/>
+  <% @brand.items.map do |item| %>
+  <%= link_to item.name, item %>
+<% end %><br/>
+<%= link_to 'Back', brands_path %>

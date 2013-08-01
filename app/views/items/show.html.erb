@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <b>Название:</b>
@@ -14,6 +13,30 @@
   <b>Цена:</b>
   <%= @item.price %>
 </p>
+
+<p>
+  <b>Бренд:</b>
+  <%= @item.brand.name %>
+</p>
+
+<p>
+  <b>Пол:</b>
+  <%= @item.sex %>
+</p>
+
+<p>
+  <b>Категория:</b>
+  <%= @item.category.name %>
+</p>
+
+<p>
+  <%= image_tag @item.image_url(:thumb).to_s %>
+</p>
+
+<p>
+  <%= button_to "добавить в Корзину", add_to_cart_item_path(@item), method: :put %>
+</p>
+
 
 
 <%= link_to 'Изменить', edit_item_path(@item) %> |

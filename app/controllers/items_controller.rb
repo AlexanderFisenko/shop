@@ -80,4 +80,33 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def add_to_cart
+    @item = Item.find(params[:id])
+    unless session[:items_in_cart]
+      session[:items_in_cart] = {}
+    end
+
+    if session[:items_in_cart][@item.id]
+      session[:items_in_cart][@item.id][:quantity] = session[:items_in_cart][@item.id][:quantity].to_i + 1
+    else
+      session[:items_in_cart][@item.id] = { quantity: 1 }
+    end
+    redirect_to cart_path#, notice: "Товар #{@item.name} был добавлен в Корзину"
+  end
+
+  def update_in_cart
+    session[:items_in_cart][params[:id].to_i][:quantity] = params[:quantity]
+    redirect_to cart_path
+  end
+
+  def remove_from_cart
+    session[:items_in_cart].delete(params[:id].to_i)
+    redirect_to cart_path
+  end
+
+  def temp
+  end
+
+
 end

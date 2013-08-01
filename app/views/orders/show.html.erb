@@ -1,0 +1,3 @@
+<% @order.order_items.each do |order_item| %>
+  <p><%= order_item.item.name %> - <%= order_item.quantity %> шт. </p>
+<% end %>

@@ -1,3 +1,56 @@
 // Place all the styles related to the items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body#temp {
+  background-image: url(oldovshina.jpg);
+  background-size: 100% auto;
+}
+#div_temp {
+  background-image: url(dimas.jpg);
+  background-repeat: no-repeat;
+  background-size: 488px 612px;
+  height: 612px;
+  width: 488px;
+  float: right;
+  position: relative;
+}
+a#pasha {
+  height: 160px;
+  width: 120px;
+  display: block;
+  margin-top: 330px;
+  margin-left: 39px;
+  position: absolute;
+}
+a#pasha:hover {
+  background: transparent;
+}
+a#dimas {
+  height: 167px;
+  width: 178px;
+  display: block;
+  position: relative;
+  margin-left: 200px;
+  margin-top: 0;
+  background: transparent;
+}
+a#dimas:hover {
+  background-image: url(dimas_head.jpg);
+  background-size: 178px 167px;
+
+  display: block;
+}
+#h1_temp {
+  text-align: center;
+  color: rgb(191, 27, 47);
+  font-weight: bold;
+  font-size: 43px;
+  font-family: Arial sans-serif;
+  margin-top: 0px;
+}
+#h3_temp {
+  text-align: center;
+  color: white;
+  font-size: 25px;
+  font-weight: normal;
+}

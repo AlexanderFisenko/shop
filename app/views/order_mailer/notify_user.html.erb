@@ -1,0 +1,8 @@
+Был заказан товар с ID <%= @order.id %> :
+<% @order.order_items.each do |order_item| %>
+  <p>
+    Имя товара: <%= order_item.item.name %><br>
+    Кол-во товара: <%= order_item.quantity %><br>
+    ID товара: <%= order_item.item.id %>
+  </p>
+<% end %>
