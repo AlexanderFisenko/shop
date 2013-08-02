@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :Категория %><br />
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <%= f.collection_select :category_id, Category.where(parent_id: 1), :id, :name %>
   </div>
   <div class="field">
     <%= f.label :Пол %><br />

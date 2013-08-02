@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 
 
-  private
+private
 
-    def set_locale
-      I18n.locale = :ru
-    end
+  def set_locale
+    I18n.locale = :ru
+  end
 end
