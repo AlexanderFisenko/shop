@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :Пол %><br />
-    <%= f.collection_select :sex, Item.all, :id, :sex %>
+    <%= f.select :sex, Item.sex.options %>
   </div>
   <div class="field">
     <%= f.label :Фото %><br />

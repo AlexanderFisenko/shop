@@ -16,7 +16,7 @@ M::Application.routes.draw do
 
   match "cart" => "orders#new"
 
-  root to: "items#temp"
+  root to: "categories#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
